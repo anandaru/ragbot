@@ -1,53 +1,63 @@
-# VNIT MTech AI Program RAG Chatbot
+# Retrieval-Augmented Generation (RAG) Chatbot for MTech Applied AI at VNIT
 
-A Retrieval-Augmented Generation (RAG) chatbot that answers questions about the MTech Applied AI program at VNIT using local documents and the Mistral 7B LLM.
+A Retrieval-Augmented Generation (RAG) chatbot that answers questions about the **MTech Applied AI program at VNIT** using local documents and the **DeepSeek 1.3B** model.
 
-## Features
+## **✨ Features**
 
-- Uses FAISS for efficient similarity search
-- BGE-small-en (384 dimensions) for document embeddings
-- Mistral 7B (Q4 quantized) for text generation
-- FastAPI backend with Streamlit frontend
-- Supports PDF document ingestion
+- **FAISS for Efficient Retrieval**: Uses FAISS for fast similarity search.
+- **Sentence-Transformers for Embeddings**: `all-MiniLM-L6-v2` model (384 dimensions) for vector embeddings.
+- **DeepSeek 1.3B (Quantized) for Text Generation**: Improved LLM response quality.
+- **FastAPI Backend & Streamlit Frontend**: Seamless API integration and user-friendly UI.
+- **Supports PDF Document Ingestion**: Parses PDFs and indexes them for retrieval.
 
-## Setup
+---
 
-1. Clone the repository:
-```bash
+## **🛠 Setup Instructions**
+
+### **1️⃣ Clone the Repository**
+
+```sh
 git clone <repository-url>
 cd ragbot
 ```
 
-2. Make the setup script executable and run it:
-```bash
+### **2️⃣ Make the Setup Script Executable & Run**
+
+```sh
 chmod +x setup.sh
 ./setup.sh
 ```
 
-This will:
-- Create a Python virtual environment
-- Install all dependencies
-- Download the Mistral 7B model
-- Create necessary directories
+**This will:** ✅ Create a Python virtual environment ✅ Install all dependencies ✅ Download the DeepSeek 1.3B model ✅ Create necessary directories
 
-3. Add your PDF documents:
-- Place your PDF files in the `data` directory
+### **3️⃣ Add Your PDF Documents**
 
-4. Start the backend server:
-```bash
+Place your PDF files in the `data/` directory:
+
+```sh
+mkdir -p data
+mv /path/to/your/pdfs/*.pdf data/
+```
+
+### **4️⃣ Start the Backend Server**
+
+```sh
 source venv/bin/activate
 uvicorn app.main:app --reload
 ```
 
-5. In a new terminal, start the Streamlit frontend:
-```bash
+### **5️⃣ Start the Streamlit Frontend** (in a new terminal)
+
+```sh
 source venv/bin/activate
 streamlit run frontend/app.py
 ```
 
-6. Open your browser and navigate to http://localhost:8501
+Now, open your browser and navigate to [**http://localhost:8501**](http://localhost:8501) to use the chatbot.
 
-## Project Structure
+---
+
+## **📁 Project Structure**
 
 ```
 ragbot/
@@ -60,16 +70,23 @@ ragbot/
 ├── frontend/
 │   └── app.py          # Streamlit UI
 ├── models/             # Directory for downloaded models
-├── data/              # Directory for PDF documents
-├── faiss_index/       # Directory for FAISS index
-├── requirements.txt   # Python dependencies
-├── setup.sh          # Setup script
-└── README.md         # This file
+├── data/               # Directory for PDF documents
+├── faiss_index/        # Directory for FAISS index
+├── requirements.txt    # Python dependencies
+├── setup.sh           # Setup script
+└── README.md          # This file
 ```
 
-## System Requirements
+---
 
-- Python 3.8 or higher
-- 16GB RAM recommended
-- 8GB disk space for models
-- Unix-based system (Linux/MacOS) 
+## **💻 System Requirements**
+
+- **Python 3.8 or higher**
+- **16GB RAM recommended** (For DeepSeek 1.3B model)
+- **8GB disk space for models**
+- **Unix-based system (Linux/MacOS)** (Windows WSL recommended)
+
+---
+
+
+
